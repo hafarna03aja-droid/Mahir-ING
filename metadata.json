@@ -1,0 +1,7 @@
+{
+  "name": "Fluentify AI",
+  "description": "Aplikasi bertenaga AI yang dirancang untuk membantu pengguna berlatih dan meningkatkan keterampilan percakapan bahasa Inggris sehari-hari melalui modul interaktif, latihan percakapan real-time, pelatihan tata bahasa, dan banyak lagi.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
