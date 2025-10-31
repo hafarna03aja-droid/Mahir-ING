@@ -1,8 +1,16 @@
 import { GoogleGenAI, Chat, GenerateContentResponse, LiveSession, LiveServerMessage, Modality } from '@google/genai';
 
-const API_KEY = process.env.API_KEY || process.env.VITE_API_KEY || import.meta.env.VITE_API_KEY;
+// Fallback untuk berbagai cara akses environment variable
+// @ts-ignore
+const API_KEY = import.meta.env?.VITE_API_KEY || 
+                process.env.VITE_API_KEY || 
+                process.env.API_KEY || 
+                'AIzaSyBJgd2wH772p99GlpUQDjQMoBFpELrbw_o';
+
+console.log('API_KEY available:', !!API_KEY);
 
 if (!API_KEY) {
+    console.error("API_KEY environment variable not set");
     throw new Error("API_KEY environment variable not set");
 }
 
