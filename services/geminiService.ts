@@ -1,10 +1,12 @@
 import { GoogleGenAI, Chat, GenerateContentResponse, LiveSession, LiveServerMessage, Modality } from '@google/genai';
 
-if (!process.env.API_KEY) {
+const API_KEY = process.env.API_KEY || process.env.VITE_API_KEY || import.meta.env.VITE_API_KEY;
+
+if (!API_KEY) {
     throw new Error("API_KEY environment variable not set");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 export const getGroundedAnswer = async (prompt: string, lang: 'id' | 'en'): Promise<GenerateContentResponse> => {
     const langInstruction = lang === 'id' 
