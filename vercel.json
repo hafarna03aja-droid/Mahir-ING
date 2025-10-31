@@ -1,4 +1,5 @@
 {
+  "name": "mahir-ing",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
