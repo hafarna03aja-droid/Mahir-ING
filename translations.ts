@@ -1,7 +1,7 @@
 export const translations = {
   id: {
     // App.tsx
-    fluentifyAI: 'Fluentify AI',
+    fluentifyAI: 'Mahir English',
     conversationPractice: 'Latihan Percakapan',
     tutorBot: 'Bot Tutor',
     grammarCoach: 'Pelatih Tata Bahasa',
@@ -63,7 +63,7 @@ export const translations = {
   },
   en: {
     // App.tsx
-    fluentifyAI: 'Fluentify AI',
+    fluentifyAI: 'Mahir English',
     conversationPractice: 'Conversation Practice',
     tutorBot: 'Tutor Bot',
     grammarCoach: 'Grammar Coach',
