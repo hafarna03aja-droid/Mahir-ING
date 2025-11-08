@@ -1,17 +1,14 @@
-import { GoogleGenAI, Chat, GenerateContentResponse, LiveSession, LiveServerMessage, Modality } from '@google/genai';
+import { GoogleGenAI, Chat, GenerateContentResponse, LiveServerMessage, Modality } from '@google/genai';
 
-// Fallback untuk berbagai cara akses environment variable
+// Get API key from environment variables
 // @ts-ignore
 const API_KEY = import.meta.env?.VITE_API_KEY || 
                 process.env.VITE_API_KEY || 
-                process.env.API_KEY || 
-                'AIzaSyBJgd2wH772p99GlpUQDjQMoBFpELrbw_o';
-
-console.log('API_KEY available:', !!API_KEY);
+                process.env.API_KEY;
 
 if (!API_KEY) {
     console.error("API_KEY environment variable not set");
-    throw new Error("API_KEY environment variable not set");
+    throw new Error("API_KEY environment variable not set. Please set VITE_API_KEY in your .env file or Vercel environment variables.");
 }
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
@@ -75,7 +72,7 @@ export const connectToLiveSession = async (callbacks: {
     onmessage: (message: LiveServerMessage) => void;
     onerror: (e: ErrorEvent) => void;
     onclose: (e: CloseEvent) => void;
-}, systemInstruction: string): Promise<LiveSession> => {
+}, systemInstruction: string) => {
     return ai.live.connect({
         model: 'gemini-2.5-flash-native-audio-preview-09-2025',
         callbacks,
